@@ -24,15 +24,13 @@ High-performance batched Top-K selection for CPU inference. Optimized for LLM sa
 
 ## Installation
 
-**Pre-built binaries:** See `bin/` directory
-
 **Build from source:**
 Windows
 ```bash
 gcc -shared -O3 -march=native -mtune=native -flto -ffast-math -funroll-loops -finline-functions -fomit-frame-pointer -static -static-libgcc fast_topk_batched.c -o fast_topk_batched.dll -lwinmm
 ```
 
-
+Linux/macOS
 ```bash
 gcc -shared -fPIC -O3 -march=native -mtune=native -flto -ffast-math -funroll-loops -finline-functions -fomit-frame-pointer fast_topk_batched.c -o libfast_topk.so
 ```
@@ -73,7 +71,7 @@ indices = indices.reshape(16, 50)  # Top-50 indices per sequence
 ## Files
 
 - `fast_topk_batched.c` - Main implementation
-- `llama.cpp_example/` - files to try fast_top_batched on llama.cpp (windows)
+- `llama.cpp_example/` - modified llama-sampling.cpp (works for windows, needs the dll in the src folder to be named fast_topk_batched.dll)
 
 ## License
 
