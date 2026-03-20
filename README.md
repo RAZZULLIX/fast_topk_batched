@@ -20,8 +20,6 @@ High-performance batched Top-K selection for CPU inference. Optimized for LLM sa
 | PyTorch CPU    | 0.777 ms           | 7.16 ms              |
 | PyTorch CUDA   | 0.086 ms           | 0.375 ms             |
 
-**llama.cpp integration:** 63% faster prompt processing (pp512: 81→142 t/s on RTX 3090)
-
 ## Installation
 
 **Build from source:**
@@ -71,7 +69,6 @@ indices = indices.reshape(16, 50)  # Top-50 indices per sequence
 ## Files
 
 - `fast_topk_batched.c` - Main implementation
-- `llama.cpp_example/` - modified llama-sampling.cpp (works for windows, needs the dll in the src folder to be named fast_topk_batched.dll)
 
 ## License
 
